@@ -10,8 +10,6 @@ namespace PesosPOO.Entidades
     {
         public double Kilogramos { get; set; }
 
-
-
         public Peso(double kilogramos)
         {
             Kilogramos = kilogramos;
@@ -24,13 +22,11 @@ namespace PesosPOO.Entidades
 
         public  bool ValidarPesos()
         {
-            if (this.Kilogramos<=0)
+            if (this.Kilogramos<=0 )
             {
                 return false;
             }
             return true;
         }
-
-
     }
 }

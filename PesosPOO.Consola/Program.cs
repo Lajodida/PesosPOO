@@ -14,17 +14,14 @@ namespace PesosPOO.Consola
         static void Main(string[] args)
         {
             
-
             Console.WriteLine("Ingrese los pesos en kilogramos");
 
             RepositoriodePesos repositorios = new RepositoriodePesos();
-
+            
             for (int i = 0; i < 3; i++)
             {
-                
-                
+              
                 var p = new Peso(Ingresokilogramos());
-
 
                 if (p.ValidarPesos())
                 {
@@ -36,8 +33,6 @@ namespace PesosPOO.Consola
                 }
 
             }
-
-           
             
             var lista = repositorios.GetLista();
             
@@ -48,16 +43,19 @@ namespace PesosPOO.Consola
 
             Console.ReadLine();
 
-
-
         }
 
         private static double Ingresokilogramos()
         {
-           
-            var ingreso = Convert.ToDouble(Console.ReadLine());
-           return ingreso;
-           
+            double valor;
+            bool numeroValido;
+            do
+            {
+                var ingreso = (Console.ReadLine());
+                numeroValido = double.TryParse(ingreso, out valor);
+            } while (!numeroValido);
+
+            return valor;
         }
 
         private static void MostrarPesos(List<Peso> Pesos)
@@ -65,9 +63,7 @@ namespace PesosPOO.Consola
             foreach (var pesoIngresado in Pesos)
             {
                 Console.WriteLine($"{pesoIngresado.Kilogramos} {pesoIngresado.GetLIbra()}");
-            }
-
-           
+            }  
             
         }
 
